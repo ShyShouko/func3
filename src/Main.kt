@@ -81,22 +81,18 @@ fun dayOfWeek() {
 
 // Практическая работа №5: Среднее число
 fun middleNumber() {
-    val num1 = 3
-    val num2 = 11
-    val num3 = 8
+    val num1 = 5
+    val num2 = 10
+    val num3 = 7
 
     val middleNumber = when {
-        (num1 > num2 && num1 < num3) || (num1 > num3 && num1 < num2) -> num1
-        (num2 > num1 && num2 < num3) || (num2 > num3 && num2 < num1) -> num2
-        (num3 > num1 && num3 < num2) || (num3 > num2 && num3 < num1) -> num3
-        else -> null
+        num1 == num2 && num2 == num3 -> "Ошибка"
+        (num1 in num2..num3 || num1 in num3..num2) -> num1
+        (num2 in num1..num3 || num2 in num3..num1) -> num2
+        else -> num3
     }
 
-    if (middleNumber != null) {
-        println("Среднее число: $middleNumber")
-    } else {
-        println("Ошибка")
-    }
+    println("Среднее число: $middleNumber")
 }
 
 // Практическая работа №6: Подсчет прибыли
